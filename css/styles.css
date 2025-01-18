@@ -1,0 +1,138 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+nav .nav-links {
+    display: flex;
+    gap: 15px;
+    overflow: hidden;
+}
+
+nav .nav-name {
+    font-size: 1.5em;
+    color: white;
+    text-decoration: none;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    box-sizing: border-box;
+}
+
+nav a:hover {
+    background-color: #575757;
+    color: white;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0; 
+    width: 100%;
+    background-color: #333;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+section {
+    padding: 100px 20px;
+    margin-top: 60px;
+    text-align: center;
+}
+
+section h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
+section h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
+#intro {
+    background-color: #ffffff;
+}
+
+#about {
+    background-color: #f0f0f0;
+}
+
+#projects {
+    background-color: #ffffff;
+}
+
+#skills {
+    background-color: #f0f0f0;
+}
+
+#contact {
+    background-color: #ffffff;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.placeholder {
+    width: 150px;
+    height: 150px;
+    background-color: #ccc;
+    border: 2px dashed #999;
+}
+
+#about .content {
+    justify-content: flex-start;
+}
+
+#about .text {
+    flex: 1;
+    text-align: center;
+}
+
+#projects .content {
+    justify-content: space-around;
+}
+
+#skills .content {
+    flex-direction: column;
+}
+
+#skills .text {
+    text-align: center;
+    margin: 20px 0;
+}
+
+#skills .placeholder.left {
+    align-self: flex-start;
+}
+
+#skills .placeholder.right {
+    align-self: flex-end;
+}
