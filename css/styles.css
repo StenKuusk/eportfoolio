@@ -3,6 +3,8 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
+    background-color: #f0f0f0; /* Taustavärv */
+    color: #333; /* Teksti värv */
 }
 
 nav .nav-links {
@@ -27,16 +29,17 @@ nav a {
 }
 
 nav a:hover {
-    background-color: #575757;
+    background-color: #ff9800; /* Oranž hover-efekt */
     color: white;
 }
 
+/* Navbar stiilid */
 nav {
     position: fixed;
     top: 0;
     left: 0; 
     width: 100%;
-    background-color: #333;
+    background-color: #333333; /* Must navigeerimisriba */
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
@@ -45,6 +48,23 @@ nav {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
     overflow: hidden;
+    position: relative;
+}
+
+nav .ripple {
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    animation: ripple 0.6s linear;
+    background-color: rgba(0, 123, 255, 0.7); /* Sinine veeefekt */
+    pointer-events: none;
+}
+
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
 }
 
 section {
@@ -53,42 +73,37 @@ section {
     text-align: center;
 }
 
-section h1 {
+section h1, section h2 {
     font-size: 2em;
     margin-bottom: 10px;
     margin-top: 0;
-}
-
-section h2 {
-    font-size: 2em;
-    margin-bottom: 10px;
-    margin-top: 0;
+    color: #ff9800; /* Oranž pealkirjade värv */
 }
 
 #intro {
-    background-color: #ffffff;
+    background-color: #ffffff; /* Valge taust */
 }
 
 #about {
-    background-color: #f0f0f0;
+    background-color: #e0f7fa; /* Hele sinine taust */
 }
 
 #projects {
-    background-color: #ffffff;
+    background-color: #ffffff; /* Valge taust */
 }
 
 #skills {
-    background-color: #f0f0f0;
+    background-color: #e0f7fa; /* Hele sinine taust */
 }
 
 #contact {
-    background-color: #ffffff;
+    background-color: #ffffff; /* Valge taust */
 }
 
 footer {
     text-align: center;
     padding: 20px;
-    background-color: #333;
+    background-color: #333; /* Must jaluse värv */
     color: white;
 }
 
@@ -103,7 +118,7 @@ footer {
 .placeholder {
     width: 150px;
     height: 150px;
-    background-color: #ccc;
+    background-color: #ccc; /* Hall placeholder */
     border: 2px dashed #999;
 }
 
@@ -135,4 +150,20 @@ footer {
 
 #skills .placeholder.right {
     align-self: flex-end;
+}
+
+/* Favicon stiil */
+.favicon {
+    width: 30px;
+    height: 30px;
+}
+
+/* Hover-efekt teksti jaoks */
+.hover-text span span {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.hover-text span span:hover {
+    transform: translateY(-10px);
 }

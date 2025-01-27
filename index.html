@@ -5,10 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-Portfolio</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="path/to/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <nav>
-        <div class="nav-name">Sten Kuusk</div>
+        <div class="nav-name">
+            <img src="path/to/favicon.ico" alt="Sten Kuusk" class="favicon">
+        </div>
         <div class="nav-links">
             <a href="#intro">Home</a>
             <a href="#about">About</a>
@@ -19,55 +22,57 @@
     </nav>
 
     <section id="intro">
-        <h1>Welcome to My E-Portfolio</h1>
-        <p>This is a brief introduction to who I am and what I do.</p>
+        <h1 class="hover-text">Welcome to My E-Portfolio</h1>
+        <p class="hover-text">This is a brief introduction to who I am and what I do.</p>
     </section>
 
     <section id="about">
         <div class="content">
             <div class="placeholder"></div>
             <div class="text">
-                <h2>About Me</h2>
-                <p>Write about yourself here, including your background, education, and interests.</p>
+                <h2 class="hover-text">About Me</h2>
+                <p class="hover-text">Write about yourself here, including your background, education, and interests.</p>
             </div>
         </div>
     </section>
     
     <section id="projects">
-        <h2>Projects</h2>
+        <h2 class="hover-text">Projects</h2>
         <div class="content">
             <div class="placeholder"></div>
             <div class="placeholder"></div>
             <div class="placeholder"></div>
         </div>
-        <p>Showcase some of the key projects you have worked on here.</p>
+        <p class="hover-text">Showcase some of the key projects you have worked on here.</p>
     </section>
     
     <section id="skills">
-        <h2>Skills and Experiences</h2>
+        <h2 class="hover-text">Skills and Experiences</h2>
         <div class="content">
             <div class="placeholder left"></div>
             <div class="text">
-                <p>List your skills, technologies you have mastered, and your professional experiences here.</p>
+                <p class="hover-text">List your skills, technologies you have mastered, and your professional experiences here.</p>
             </div>
             <div class="placeholder right"></div>
             <div class="text">
-                <p>Another skill or experience description here.</p>
+                <p class="hover-text">Another skill or experience description here.</p>
             </div>
             <div class="placeholder left"></div>
             <div class="text">
-                <p>Another skill or experience description here.</p>
+                <p class="hover-text">Another skill or experience description here.</p>
             </div>
         </div>
     </section>
 
     <section id="contact">
-        <h2>Contact</h2>
-        <p>Provide your contact information or a form for others to reach out to you.</p>
+        <h2 class="hover-text">Contact</h2>
+        <p class="hover-text">Provide your contact information or a form for others to reach out to you.</p>
     </section>
 
     <footer>
         <p>&copy; 2025 Sten Kuusk. All Rights Reserved.</p>
     </footer>
+
+    <script src="js/scripts.js"></script>
 </body>
 </html>
