@@ -33,7 +33,6 @@ nav a:hover {
     color: white;
 }
 
-/* Navbar stiilid */
 nav {
     position: fixed;
     top: 0;
@@ -80,8 +79,17 @@ section h1, section h2 {
     color: #ff9800; /* Oranž pealkirjade värv */
 }
 
+section p {
+    font-size: 1.2em;
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
 #intro {
-    background-color: #ffffff; /* Valge taust */
+    background: url('img/image.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #333;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
 }
 
 #about {
@@ -98,6 +106,38 @@ section h1, section h2 {
 
 #contact {
     background-color: #ffffff; /* Valge taust */
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-form label {
+    font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.contact-form button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: #45a049;
 }
 
 footer {
@@ -118,8 +158,14 @@ footer {
 .placeholder {
     width: 150px;
     height: 150px;
-    background-color: #ccc; /* Hall placeholder */
+    background-color: #ccc;
     border: 2px dashed #999;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.placeholder:hover {
+    transform: scale(1.1);
+    background-color: #bbb;
 }
 
 #about .content {
@@ -152,13 +198,11 @@ footer {
     align-self: flex-end;
 }
 
-/* Favicon stiil */
 .favicon {
     width: 30px;
     height: 30px;
 }
 
-/* Hover-efekt teksti jaoks */
 .hover-text span span {
     display: inline-block;
     transition: transform 0.3s ease;
@@ -166,4 +210,46 @@ footer {
 
 .hover-text span span:hover {
     transform: translateY(-10px);
+}
+
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.lightbox-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+.lightbox-content img {
+    width: 100%;
+    height: auto;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.lightbox-close:hover,
+.lightbox-close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
 }
