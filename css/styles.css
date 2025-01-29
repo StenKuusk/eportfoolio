@@ -1,10 +1,19 @@
 body {
-    font-family: Arial, sans-serif;
+    overflow-y: scroll;
+    height: auto;
+    scroll-behavior: smooth; /* Sujuv kerimine */
+}
+
+/* Sektsioonide stiilid */
+section {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 20px;
     margin: 0;
-    padding: 0;
-    line-height: 1.6;
-    background-color: #f0f0f0; /* Taustavärv */
-    color: #333; /* Teksti värv */
+    text-align: center;
 }
 
 nav .nav-links {
@@ -36,7 +45,7 @@ nav a:hover {
 nav {
     position: fixed;
     top: 0;
-    left: 0; 
+    left: 0;
     width: 100%;
     background-color: #333333; /* Must navigeerimisriba */
     padding: 10px 20px;
@@ -47,15 +56,16 @@ nav {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
     overflow: hidden;
-    position: relative;
 }
 
 nav .ripple {
     position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: rgba(0, 123, 255, 0.6);
     border-radius: 50%;
     transform: scale(0);
     animation: ripple 0.6s linear;
-    background-color: rgba(0, 123, 255, 0.7); /* Sinine veeefekt */
     pointer-events: none;
 }
 
@@ -66,10 +76,12 @@ nav .ripple {
     }
 }
 
-section {
-    padding: 100px 20px;
-    margin-top: 60px;
-    text-align: center;
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
 }
 
 section h1, section h2 {
@@ -141,10 +153,17 @@ section p {
 }
 
 footer {
-    text-align: center;
-    padding: 20px;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
     background-color: #333; /* Must jaluse värv */
     color: white;
+    text-align: center;
+    padding: 10px 20px;
+    z-index: 1000;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
 }
 
 .content {

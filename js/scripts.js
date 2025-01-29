@@ -18,18 +18,32 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Lisame veeefekti navbari jaoks
-    const navbar = document.querySelector('nav');
-    navbar.addEventListener('mousemove', function(e) {
-        const ripple = document.createElement('span');
-        ripple.classList.add('ripple');
-        ripple.style.left = `${e.clientX - navbar.offsetLeft}px`;
-        ripple.style.top = `${e.clientY - navbar.offsetTop}px`;
-        navbar.appendChild(ripple);
-
+    document.querySelector("nav").addEventListener("click", function (e) {
+        const ripple = document.createElement("span");
+        ripple.classList.add("ripple");
+    
+        const rect = this.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+    
+        ripple.style.left = `${x}px`;
+        ripple.style.top = `${y}px`;
+    
+        this.appendChild(ripple);
+    
         setTimeout(() => {
             ripple.remove();
         }, 600);
+    });
+    
+    // Sujuv kerimine navbari linkidele
+    document.querySelectorAll('nav a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
     });
 });
 
