@@ -120,36 +120,23 @@ section p {
     background-color: #ffffff; /* Valge taust */
 }
 
-.contact-form {
+.contact-info {
     display: flex;
     flex-direction: column;
     gap: 10px;
     max-width: 600px;
     margin: 0 auto;
+    text-align: center;
 }
 
-.contact-form label {
-    font-weight: bold;
+.contact-info a {
+    margin-top: -25px;
+    color: #185ba8;
+    text-decoration: none;
 }
 
-.contact-form input,
-.contact-form textarea {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.contact-form button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.contact-form button:hover {
-    background-color: #45a049;
+.contact-info a:hover {
+    text-decoration: underline;
 }
 
 footer {
