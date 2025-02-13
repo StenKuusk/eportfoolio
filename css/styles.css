@@ -42,6 +42,17 @@ nav a:hover {
     color: white;
 }
 
+/* Lisame sujuvad üleminekud linkidele */
+nav a, .contact-info a {
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Lisame hover-efekti sektsioonidele */
+section:hover {
+    transform: scale(1.02);
+    transition: transform 0.3s ease;
+}
+
 nav {
     position: fixed;
     top: 0;
@@ -258,4 +269,44 @@ footer {
     color: #bbb;
     text-decoration: none;
     cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    nav .nav-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    section {
+        padding: 50px 10px;
+    }
+
+    .contact-info {
+        gap: 5px;
+    }
+
+    /* Eemaldame ripple efekti ja teksti hüppamise mobiilivaates */
+    nav .ripple {
+        display: none;
+    }
+
+    .hover-text span span:hover {
+        transform: none;
+    }
+}
+
+/* Eri värvid oskuste ribadele */
+.skill-bar {
+    height: 20px;
+    background-color: #4CAF50; /* Roheline värv */
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.skill:nth-child(2) .skill-bar {
+    background-color: #2196F3; /* Sinine värv */
+}
+
+.skill:nth-child(3) .skill-bar {
+    background-color: #FF9800; /* Oranž värv */
 }
