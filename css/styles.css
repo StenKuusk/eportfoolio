@@ -403,3 +403,52 @@ footer {
     object-fit: cover;
     object-position: center;
 }
+
+/* Galerii stiilid */
+.gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gallery-item {
+    position: relative;
+    width: 80%;
+    max-width: 700px;
+    margin-bottom: 20px;
+}
+
+.gallery-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.gallery-image {
+    width: 100%;
+    display: block;
+}
+
+.gallery-prev, .gallery-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.gallery-prev {
+    left: 0;
+}
+
+.gallery-next {
+    right: 0;
+}
+
+.gallery-prev:hover, .gallery-next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}

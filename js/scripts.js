@@ -1,3 +1,29 @@
+let slideIndex = 0;
+const slides = [
+    'img/it.png',
+    'img/it2.png'
+];
+
+function showSlide(index) {
+    const galleryImage = document.querySelector('.gallery-image');
+    if (index >= slides.length) {
+        slideIndex = 0;
+    } else if (index < 0) {
+        slideIndex = slides.length - 1;
+    } else {
+        slideIndex = index;
+    }
+    galleryImage.src = slides[slideIndex];
+}
+
+function changeSlide(n) {
+    showSlide(slideIndex + n);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    showSlide(slideIndex);
+});
+
 document.addEventListener('DOMContentLoaded', () => {
     const hoverTextElements = document.querySelectorAll('.hover-text');
 
