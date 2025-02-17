@@ -281,9 +281,36 @@ footer {
         padding: 50px 10px;
     }
 
-    .contact-info {
-        gap: 5px;
-    }
+    /* Kontaktinfo stiilid */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact-info a {
+    color: #185ba8;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* Eemaldame hover-efektid ja muud interaktiivsed funktsioonid GitHubi lingilt */
+.github-link {
+    color: #185ba8;
+    text-decoration: none;
+    margin-top: -10px;
+}
+
+.github-link:hover {
+    text-decoration: underline;
+    color: #185ba8;
+}
 
     /* Eemaldame ripple efekti ja teksti hüppamise mobiilivaates */
     nav .ripple {
@@ -296,11 +323,19 @@ footer {
 }
 
 /* Eri värvid oskuste ribadele */
+.skill-bar-container {
+    width: 60%;
+    background-color: #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
 .skill-bar {
     height: 20px;
     background-color: #4CAF50; /* Roheline värv */
-    margin-bottom: 10px;
-    border-radius: 5px;
+    border-radius: 5px 0 0 5px;
 }
 
 .skill:nth-child(2) .skill-bar {
@@ -309,4 +344,62 @@ footer {
 
 .skill:nth-child(3) .skill-bar {
     background-color: #FF9800; /* Oranž värv */
+}
+
+.skill:nth-child(4) .skill-bar {
+    background-color: #9C27B0; /* Lilla värv */
+}
+
+.skill:nth-child(5) .skill-bar {
+    background-color: #00BCD4; /* Tumesinine värv */
+}
+
+.skill:nth-child(6) .skill-bar {
+    background-color: #FFC107; /* Kollane värv */
+}
+
+.skill-level {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    color: black;
+}
+
+.skill {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.skill-description {
+    width: 35%;
+}
+
+.skill-description h3 {
+    margin: 0;
+}
+
+.skill-description p {
+    margin: 5px 0 0;
+}
+
+/* Pildi konteineri stiilid */
+.image-container {
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
 }
