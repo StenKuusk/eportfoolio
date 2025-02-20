@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-Portfolio</title>
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="icon" href="path/to/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="img/minu_favi.webp" type="image/webp">
 </head>
 <body>
     <nav>
@@ -41,70 +41,86 @@
     <section id="projects">
         <h2 class="hover-text">Projects</h2>
         <div class="gallery">
-            <div class="gallery-item">
-                <h3 class="hover-text">Project 1: IT Academy webpage</h3>
+            <div class="gallery-item" onclick="openProject('project1')">
+                <h3 class="hover-text">IT Academy webpage</h3>
                 <div class="gallery-container">
-                    <button class="gallery-prev" onclick="changeSlide(-1)">&#10094;</button>
                     <img src="img/it.png" alt="Project 1 Image" class="gallery-image">
-                    <button class="gallery-next" onclick="changeSlide(1)">&#10095;</button>
                 </div>
-                <p class="hover-text">Recently we had given a project to make a IT Academy prototype website for our own school. I did this with 1 other person. Due to rules, I cannot give away more previews of it due to it being work in progress.</p>
+            </div>
+            <!-- Lisa rohkem projekte siia -->
+            <div class="gallery-item" onclick="openProject('project2')">
+                <h3 class="hover-text">Another Project</h3>
+                <div class="gallery-container">
+                    <img src="img/it.png" alt="Project 2 Image" class="gallery-image">
+                </div>
             </div>
             <!-- Lisa rohkem projekte siia -->
         </div>
     </section>
+
+    <!-- Project details modal -->
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeProject()">&times;</span>
+            <h3 id="project-title"></h3>
+            <div id="project-images" class="gallery-container"></div>
+            <button class="gallery-prev" onclick="changeModalImage(-1)">&#10094;</button>
+            <button class="gallery-next" onclick="changeModalImage(1)">&#10095;</button>
+            <p id="project-description"></p>
+        </div>
+    </div>
     
     <section id="skills">
         <h2 class="hover-text">Skills and Experiences</h2>
         <div class="skills-chart">
             <div class="skill">
-                <div class="skill-description">
-                    <h3 class="hover-text">JavaScript</h3>
-                    <p class="hover-text">I can build dynamic web applications and interactive user interfaces. But I haven't yet reached the level where I would say I am super good.</p>
-                </div>
                 <div class="skill-bar-container">
                     <div class="skill-bar" style="width: 70%;"></div>
                     <div class="skill-level">7/10</div>
                 </div>
+                <div class="skill-description">
+                    <h3 class="hover-text">JavaScript</h3>
+                    <p class="hover-text">I can build dynamic web applications and interactive user interfaces. But I haven't yet reached the level where I would say I am super good.</p>
+                </div>
             </div>
             <div class="skill">
-                <div class="skill-description">
-                    <h3 class="hover-text">HTML/CSS</h3>
-                    <p class="hover-text">I'd say I can create responsive and visually appealing web pages, given time that is. But I am still looking for ways to truly implement the most fascinating designs into my work.</p>
-                </div>
                 <div class="skill-bar-container">
                     <div class="skill-bar" style="width: 80%;"></div>
                     <div class="skill-level">8/10</div>
                 </div>
+                <div class="skill-description">
+                    <h3 class="hover-text">HTML/CSS</h3>
+                    <p class="hover-text">I'd say I can create responsive and visually appealing web pages, given time that is. But I am still looking for ways to truly implement the most fascinating designs into my work.</p>
+                </div>
             </div>
             <div class="skill">
-                <div class="skill-description">
-                    <h3 class="hover-text">Python</h3>
-                    <p class="hover-text">I haven't had much experience with Python. At the start, sure, I have done some code with it, but it didn't sit with me as well compared to the previous two.</p>
-                </div>
                 <div class="skill-bar-container">
                     <div class="skill-bar" style="width: 30%;"></div>
                     <div class="skill-level">3/10</div>
                 </div>
+                <div class="skill-description">
+                    <h3 class="hover-text">Python</h3>
+                    <p class="hover-text">I haven't had much experience with Python. At the start, sure, I have done some code with it, but it didn't sit with me as well compared to the previous two.</p>
+                </div>
             </div>
             <div class="skill">
+                <div class="skill-bar-container">
+                    <div class="skill-bar" style="width: 90%;"></div>
+                    <div class="skill-level">9/10</div>
+                </div>
                 <div class="skill-description">
                     <h3 class="hover-text">SQL</h3>
                     <p class="hover-text">Managing and querying relational databases? Count me in. I can read databases, create them, insert data into them in my opinion with ease.</p>
                 </div>
-                <div class="skill-bar-container">
-                    <div class="skill-bar" style="width: 95%;"></div>
-                    <div class="skill-level">9.5/10</div>
-                </div>
             </div>
             <div class="skill">
+                <div class="skill-bar-container">
+                    <div class="skill-bar" style="width: 50%;"></div>
+                    <div class="skill-level">5/10</div>
+                </div>
                 <div class="skill-description">
                     <h3 class="hover-text">React</h3>
                     <p class="hover-text">I have used react. I wouldn't say I am at any good of using it's potential to the max yet. But I am trying... Yeah, trying.</p>
-                </div>
-                <div class="skill-bar-container">
-                    <div class="skill-bar" style="width: 55%;"></div>
-                    <div class="skill-level">5.5/10</div>
                 </div>
             </div>
             <!-- Lisa rohkem oskusi siia -->

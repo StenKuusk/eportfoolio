@@ -1,28 +1,54 @@
-let slideIndex = 0;
-const slides = [
-    'img/it.png',
-    'img/it2.png'
-];
-
-function showSlide(index) {
-    const galleryImage = document.querySelector('.gallery-image');
-    if (index >= slides.length) {
-        slideIndex = 0;
-    } else if (index < 0) {
-        slideIndex = slides.length - 1;
-    } else {
-        slideIndex = index;
+const projects = {
+    project1: {
+        title: "IT Academy webpage",
+        images: [
+            'img/it.png',
+            'img/it2.png'
+        ],
+        description: "Recently we had given a project to make a IT Academy prototype website for our own school. I did this with 1 other person. Due to rules, I cannot give away more previews of it due to it being work in progress."
+    },
+    project2: {
+        title: "Another Project",
+        images: [
+            'img/it.png',
+            'img/it2.png'
+        ],
+        description: "This is another project description. It provides an overview of what the project is about and its key features."
     }
-    galleryImage.src = slides[slideIndex];
+    // Lisa rohkem projekte siia
+};
+
+let currentImageIndex = 0;
+
+function openProject(projectId) {
+    const project = projects[projectId];
+    document.getElementById('project-title').innerText = project.title;
+    const projectImages = document.getElementById('project-images');
+    projectImages.innerHTML = '';
+    project.images.forEach((image, index) => {
+        const img = document.createElement('img');
+        img.src = image;
+        img.classList.add('gallery-image');
+        if (index === 0) {
+            img.classList.add('active'); // Kuvame esimese pildi
+        }
+        projectImages.appendChild(img);
+    });
+    currentImageIndex = 0;
+    document.getElementById('project-description').innerText = project.description;
+    document.getElementById('project-modal').style.display = 'block';
 }
 
-function changeSlide(n) {
-    showSlide(slideIndex + n);
+function closeProject() {
+    document.getElementById('project-modal').style.display = 'none';
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    showSlide(slideIndex);
-});
+function changeModalImage(direction) {
+    const projectImages = document.querySelectorAll('#project-images .gallery-image');
+    projectImages[currentImageIndex].classList.remove('active');
+    currentImageIndex = (currentImageIndex + direction + projectImages.length) % projectImages.length;
+    projectImages[currentImageIndex].classList.add('active');
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     const hoverTextElements = document.querySelectorAll('.hover-text');
@@ -82,3 +108,18 @@ function openLightbox(src) {
 function closeLightbox() {
     document.getElementById('lightbox').style.display = 'none';
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const imageContainer = document.querySelector('.image-container');
+
+    imageContainer.addEventListener('mouseover', () => {
+        imageContainer.style.animation = 'bounce 2s infinite';
+    });
+
+    imageContainer.addEventListener('mouseout', () => {
+        imageContainer.style.animation = 'bounce-out 1s';
+        setTimeout(() => {
+            imageContainer.style.animation = '';
+        }, 1000);
+    });
+});
