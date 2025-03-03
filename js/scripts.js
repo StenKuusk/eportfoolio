@@ -8,12 +8,15 @@ const projects = {
         description: "Recently we had given a project to make a IT Academy prototype website for our own school. I did this with 1 other person. Due to rules, I cannot give away more previews of it due to it being work in progress."
     },
     project2: {
-        title: "Another Project",
+        title: "Recipe browsing webpage 'Maitsed laual'",
         images: [
-            'img/it.png',
-            'img/it2.png'
+            'img/recipe.png',
+            'img/recipe1.png',
+            'img/recipe2.png',
+            'img/recipe3.png',
+            'img/recipe4.png'
         ],
-        description: "This is another project description. It provides an overview of what the project is about and its key features."
+        description: "Me and one of my classmates were tasked to create a project that would use relational databases to sae users info and bring content from the database onto the page. Basically, the user is able to create and log into his own account on our webpage. From there, they can see a random selection of recipes on the homepage or go to the recipes page to filter out and search for some. Clicking on recipes, there is a detailed description for them on how to cook said recipe, what ingrediants are needed and also a nice picture to go along with it. Depending on if the user made a account or not, they can mark the recipe as one of their favorites and also leave comments on various different recipes. All of it being saved into our database."
     }
     // Lisa rohkem projekte siia
 };
