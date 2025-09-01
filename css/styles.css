@@ -19,7 +19,7 @@ section {
 nav .nav-links {
     display: flex;
     gap: 15px;
-    overflow: hidden;
+    overflow: visible;
 }
 
 nav .nav-name {
@@ -33,13 +33,29 @@ nav a {
     text-decoration: none;
     padding: 8px 12px;
     border-radius: 4px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: all 0.3s ease;
     box-sizing: border-box;
+    position: relative;
+    overflow: visible;
 }
 
 nav a:hover {
-    background-color: #ff9800; /* Oranž hover-efekt */
+    background: linear-gradient(135deg, #ff9800, #ff5722); /* Oranž gradient hover-efekt */
     color: white;
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 4px 8px rgba(255, 152, 0, 0.3);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+nav a:hover::before {
+    content: '🚀';
+    position: absolute;
+    top: -15px;
+    right: -5px;
+    font-size: 0.9em;
+    animation: float 2s infinite;
+    z-index: 1001;
+    filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.5));
 }
 
 /* Lisame sujuvad üleminekud linkidele */
@@ -48,9 +64,13 @@ nav a, .contact-info a {
 }
 
 /* Lisame hover-efekti sektsioonidele */
+section {
+    transition: all 0.3s ease;
+}
+
 section:hover {
-    transform: scale(1.02);
-    transition: transform 0.3s ease;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
 nav {
@@ -66,7 +86,7 @@ nav {
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
-    overflow: hidden;
+    overflow: visible;
 }
 
 nav .ripple {
@@ -96,10 +116,68 @@ nav .ripple {
 }
 
 section h1, section h2 {
-    font-size: 2em;
-    margin-bottom: 10px;
+    font-size: 2.2em;
+    margin-bottom: 15px;
     margin-top: 0;
     color: #ff9800; /* Oranž pealkirjade värv */
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+section h1:hover, section h2:hover {
+    transform: scale(1.05) rotate(1deg);
+    text-shadow: 0 4px 8px rgba(255, 152, 0, 0.5);
+    animation: rainbow 2s infinite;
+}
+
+section h1::before, section h2::before {
+    content: '✨';
+    position: absolute;
+    left: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: all 0.3s ease;
+    font-size: 0.8em;
+}
+
+section h1:hover::before, section h2:hover::before {
+    opacity: 1;
+    animation: float 2s infinite;
+}
+
+section h1::after, section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #ff9800, #ff5722);
+    border-radius: 2px;
+}
+
+/* Projekte sektsioonide stiilid */
+.projects-section {
+    margin-bottom: 60px;
+    width: 100%;
+    position: relative;
+    margin-top: 40px; /* Lisame vahe "Projects" pealkirja ja sektsioonide vahele */
+}
+
+.projects-section::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #ff9800, #ff5722);
+    border-radius: 2px;
 }
 
 section p {
@@ -144,10 +222,35 @@ section p {
     margin-top: -25px;
     color: #185ba8;
     text-decoration: none;
+    position: relative;
+    transition: all 0.3s ease;
 }
 
 .contact-info a:hover {
     text-decoration: underline;
+    transform: scale(1.1);
+    color: #ff9800;
+    text-shadow: 0 0 10px rgba(255, 152, 0, 0.5);
+    animation: pulse 1s infinite;
+}
+
+.contact-info a::before {
+    content: '📧';
+    position: absolute;
+    left: -25px;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.contact-info a:hover::before {
+    opacity: 1;
+    animation: float 2s infinite;
+}
+
+.contact-info p:hover {
+    transform: translateX(10px);
+    color: #ff9800;
+    animation: glitch 0.3s ease-in-out;
 }
 
 footer {
@@ -155,13 +258,38 @@ footer {
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: #333; /* Must jaluse värv */
+    background: linear-gradient(135deg, #333, #555);
     color: white;
     text-align: center;
     padding: 10px 20px;
     z-index: 1000;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    animation: shimmer 3s infinite;
+}
+
+footer p {
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+footer p:hover {
+    transform: scale(1.1);
+    text-shadow: 0 0 10px rgba(255,255,255,0.5);
+    animation: pulse 1s infinite;
 }
 
 .content {
@@ -281,6 +409,15 @@ footer {
         padding: 50px 10px;
     }
 
+    .projects-section {
+        margin-bottom: 40px;
+    }
+
+    .section-title {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+    }
+
     /* Kontaktinfo stiilid */
 .contact-info {
     display: flex;
@@ -334,8 +471,43 @@ footer {
 
 .skill-bar {
     height: 30px; /* Natuke suurem */
-    background-color: #4CAF50; /* Roheline värv */
+    background: linear-gradient(90deg, #4CAF50, #45a049); /* Roheline gradient */
     border-radius: 5px 0 0 5px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.skill-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    animation: shimmer 2s infinite;
+}
+
+.skill:hover .skill-bar {
+    transform: scaleX(1.05);
+    box-shadow: 0 0 20px rgba(76, 175, 80, 0.5);
+}
+
+.skill:hover .skill-level {
+    animation: pulse 1s infinite;
+    color: #4CAF50;
+    font-size: 1.2em;
+}
+
+.skill:hover .skill-description h3 {
+    animation: glitch 0.5s ease-in-out;
+    color: #ff9800;
+}
+
+@keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
 }
 
 .skill:nth-child(2) .skill-bar {
@@ -396,7 +568,44 @@ footer {
     border-radius: 50%;
     margin-right: -40px;
     margin-left: 60px;
-    transition: transform 0.3s ease;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    cursor: pointer;
+}
+
+.image-container::before {
+    content: '👋';
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-size: 2em;
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+    transition: all 0.3s ease;
+    z-index: 10;
+    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+}
+
+.image-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent, rgba(255,152,0,0.3), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 50%;
+}
+
+.image-container:hover::before {
+    opacity: 1;
+    transform: scale(1) rotate(360deg);
+}
+
+.image-container:hover::after {
+    opacity: 1;
 }
 
 .image-container img {
@@ -404,39 +613,145 @@ footer {
     height: auto;
     object-fit: cover;
     object-position: center;
+    transition: all 0.5s ease;
+}
+
+.image-container:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 10px 30px rgba(255, 152, 0, 0.4);
+}
+
+.image-container:hover img {
+    filter: brightness(1.2) contrast(1.1);
 }
 
 @keyframes bounce {
     0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
+        transform: translateY(0) rotate(0deg);
     }
     40% {
-        transform: translateY(-30px);
+        transform: translateY(-30px) rotate(5deg);
     }
     60% {
-        transform: translateY(-15px);
+        transform: translateY(-15px) rotate(-3deg);
     }
 }
 
 @keyframes bounce-out {
     0% {
-        transform: translateY(0);
+        transform: translateY(0) rotate(0deg);
     }
     20% {
-        transform: translateY(-10px);
+        transform: translateY(-10px) rotate(2deg);
     }
     40% {
-        transform: translateY(5px);
+        transform: translateY(5px) rotate(-1deg);
     }
     60% {
-        transform: translateY(-5px);
+        transform: translateY(-5px) rotate(1deg);
     }
     80% {
-        transform: translateY(2px);
+        transform: translateY(2px) rotate(0deg);
     }
     100% {
-        transform: translateY(0);
+        transform: translateY(0) rotate(0deg);
     }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-10px) rotate(2deg);
+    }
+    50% {
+        transform: translateY(-5px) rotate(-1deg);
+    }
+    75% {
+        transform: translateY(-15px) rotate(1deg);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 152, 0, 0.7);
+    }
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 10px rgba(255, 152, 0, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 152, 0, 0);
+    }
+}
+
+@keyframes rainbow {
+    0% { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(360deg); }
+}
+
+@keyframes glitch {
+    0% {
+        transform: translate(0);
+    }
+    20% {
+        transform: translate(-2px, 2px);
+    }
+    40% {
+        transform: translate(-2px, -2px);
+    }
+    60% {
+        transform: translate(2px, 2px);
+    }
+    80% {
+        transform: translate(2px, -2px);
+    }
+    100% {
+        transform: translate(0);
+    }
+}
+
+@keyframes matrix {
+    0% {
+        text-shadow: 0 0 5px #0f0, 0 0 10px #0f0, 0 0 15px #0f0;
+    }
+    50% {
+        text-shadow: 0 0 10px #0f0, 0 0 20px #0f0, 0 0 30px #0f0;
+    }
+    100% {
+        text-shadow: 0 0 5px #0f0, 0 0 10px #0f0, 0 0 15px #0f0;
+    }
+}
+
+/* Projekte sektsioonide stiilid */
+.projects-section {
+    margin-bottom: 60px;
+    width: 100%;
+    position: relative;
+}
+
+.projects-section::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #ff9800, #ff5722);
+    border-radius: 2px;
+ }
+
+.section-title {
+    font-size: 1.8em;
+    margin-bottom: 30px;
+    color: #ff9800;
+    text-align: center;
+    position: relative;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 /* Galerii stiilid */
@@ -445,6 +760,39 @@ footer {
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.gallery-item {
+    animation: slideIn 0.6s ease-out;
+    animation-fill-mode: both;
+}
+
+.gallery-item:nth-child(1) { animation-delay: 0.1s; }
+.gallery-item:nth-child(2) { animation-delay: 0.2s; }
+.gallery-item:nth-child(3) { animation-delay: 0.3s; }
+.gallery-item:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 .gallery-item {
@@ -452,21 +800,67 @@ footer {
     width: 300px;
     margin-bottom: 20px;
     border: 1px solid #ddd;
-    border-radius: 10px;
+    border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     cursor: pointer;
+    background: white;
 }
 
 .gallery-item:hover {
-    transform: scale(1.0075);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-10px) scale(1.02) rotate(1deg);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border-color: #ff9800;
+    animation: pulse 2s infinite;
+}
+
+.gallery-item:hover .gallery-image {
+    animation: rainbow 3s infinite;
+}
+
+.gallery-item:hover h3 {
+    animation: matrix 2s infinite;
+    color: #0f0;
+}
+
+/* Parandame hover väljumise efekti */
+.gallery-item {
+    animation: none;
+}
+
+.gallery-item .gallery-image {
+    animation: none;
+}
+
+.gallery-item h3 {
+    animation: none;
+    color: inherit;
+}
+
+.gallery-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #ff9800, #ff5722);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover::before {
+    transform: scaleX(1);
 }
 
 .gallery-item h3 {
     font-size: 1.5em;
     margin-bottom: 10px;
+    padding: 15px 15px 10px 15px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    margin: 0;
+    border-bottom: 1px solid #eee;
 }
 
 .gallery-container {
@@ -518,19 +912,35 @@ footer {
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
+    overflow: hidden; /* Muudame auto -> hidden, et vältida skrollimisriba */
     background-color: rgba(0, 0, 0, 0.9);
 }
 
 .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 700px;
-    border-radius: 10px;
+    background: linear-gradient(135deg, #fefefe, #f0f0f0);
+    margin: 2% auto 5% auto; /* Lisame rohkem ruumi alla */
+    padding: 30px 30px 40px 30px; /* Suurendame alumist padding'ut */
+    width: 90%; /* Suurendame laiust */
+    max-width: 900px; /* Suurendame maksimaalset laiust */
+    max-height: 80vh; /* Vähendame kõrgust, et jääks rohkem ruumi alla */
+    border-radius: 15px;
     position: relative;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    animation: modalSlideIn 0.5s ease-out;
+    overflow-y: auto; /* Lisame skrollimise modal'i sisu jaoks */
+}
+
+/* Eemaldame rainbow border'i */
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 
 .close {
@@ -538,17 +948,26 @@ footer {
     float: right;
     font-size: 28px;
     font-weight: bold;
+    position: absolute; /* Lisame absoluutse positsioneerimise */
+    top: 15px;
+    right: 20px;
+    z-index: 1002; /* Kõrge z-index, et olla kõige peal */
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .close:hover,
 .close:focus {
-    color: black;
+    color: #ff5722;
     text-decoration: none;
     cursor: pointer;
+    transform: scale(1.2);
 }
 
 #project-description {
     font-size: 1.2em; /* Suurem tekst */
+    margin-bottom: 15px;
+    line-height: 1.6;
 }
 
 .modal .gallery-container {
@@ -588,4 +1007,51 @@ footer {
 
 .modal .gallery-prev:hover, .modal .gallery-next:hover {
     background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Linkide stiilid modal'is */
+#project-site-link, #project-repo-link {
+    display: inline-block;
+    margin-top: 20px; /* Suurendame ülemist marginit */
+    margin-right: 10px;
+    margin-bottom: 10px; /* Lisame alumise margini */
+    padding: 12px 20px;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    z-index: 1001;
+}
+
+/* Site linki stiilid */
+#project-site-link {
+    background: linear-gradient(135deg, #ff9800, #ff5722);
+    box-shadow: 0 4px 8px rgba(255, 152, 0, 0.3);
+}
+
+#project-site-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(255, 152, 0, 0.5);
+    background: linear-gradient(135deg, #ff5722, #ff9800);
+    text-decoration: none;
+    color: white;
+}
+
+/* GitHub linki stiilid */
+#project-repo-link {
+    background: linear-gradient(135deg, #333, #555);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+#project-repo-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(135deg, #555, #333);
+    text-decoration: none;
+    color: white;
 }
