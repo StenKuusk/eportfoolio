@@ -304,3 +304,19 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// Hamburger menu toggle
+const navToggle = document.getElementById('nav-toggle');
+const navLinks = document.getElementById('nav-links');
+const navLinkItems = document.querySelectorAll('.nav-link');
+
+navToggle.addEventListener('click', function() {
+    navLinks.classList.toggle('open');
+});
+
+// Sulge menüü, kui valik tehakse
+navLinkItems.forEach(link => {
+    link.addEventListener('click', function() {
+        navLinks.classList.remove('open');
+    });
+});
