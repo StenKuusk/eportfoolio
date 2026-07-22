@@ -176,11 +176,14 @@ document.addEventListener('DOMContentLoaded', () => {
             ripple.classList.add("ripple");
         
             const rect = this.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
+            const rippleSize = 24;
+            const x = Math.min(Math.max(e.clientX - rect.left, rippleSize / 2), rect.width - rippleSize / 2);
+            const y = Math.min(Math.max(e.clientY - rect.top, rippleSize / 2), rect.height - rippleSize / 2);
         
-            ripple.style.left = `${x}px`;
-            ripple.style.top = `${y}px`;
+            ripple.style.left = `${x - rippleSize / 2}px`;
+            ripple.style.top = `${y - rippleSize / 2}px`;
+            ripple.style.width = `${rippleSize}px`;
+            ripple.style.height = `${rippleSize}px`;
         
             this.appendChild(ripple);
         
